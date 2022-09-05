@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPage } from "../features/filter/filterSlice";
+import { Link } from "react-router-dom";
+import { reset, setPage } from "../features/filter/filterSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,8 @@ const Pagination = () => {
 
   const pageCount = transactions.length / 10;
   return (
-    transactions.length > 10 && (
-      <div className="w-[400px] mx-auto mt-2">
+    <div className="w-[400px] mx-auto mt-2">
+      {transactions.length > 10 && (
         <div className="flex w-full gap-2">
           {pageCount &&
             Object.keys([...Array(Math.ceil(pageCount))]).map(
@@ -33,8 +34,17 @@ const Pagination = () => {
               )
             )}
         </div>
-      </div>
-    )
+      )}
+      <Link
+        onClick={() => {
+          dispatch(reset());
+        }}
+        to={"/"}
+        className="block text-center bg-indigo-700 text-white p-3 text-sm w-full mt-2"
+      >
+        Go To Home
+      </Link>
+    </div>
   );
 };
 

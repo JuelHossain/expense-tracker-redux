@@ -25,6 +25,7 @@ const Filter = () => {
   }, []);
   const handleChange = (e) => {
     dispatch(setSearch(e.target.value));
+    dispatch(setPage(1));
   };
   const handleDebounce = debounce(handleChange);
   // const searchRef = useRef(null);

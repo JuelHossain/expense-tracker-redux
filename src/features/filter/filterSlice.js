@@ -4,7 +4,6 @@ const initialState = {
   selected: "all",
   search: "",
   page: 1,
-  searchRef: null,
 };
 
 // create slice
@@ -18,9 +17,6 @@ const filterSlice = createSlice({
     setSearch: (state, action) => {
       state.search = action.payload;
     },
-    setSearchRef: (state, action) => {
-      state.searchRef = action.payload;
-    },
     setPage: (state, action) => {
       state.page = action.payload;
     },
@@ -33,5 +29,5 @@ const filterSlice = createSlice({
 });
 
 export default filterSlice.reducer;
-export const { setPage, reset, setSelected, setSearch, setSearchRef } =
+export const { setPage, reset, setSelected, setSearch } =
   filterSlice.actions;

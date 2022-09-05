@@ -45,15 +45,7 @@ export default function AllTransactionsList() {
       <p className="second_heading">All Transactions</p>
       <div className="max-w-[400px] mx-auto">
         <ul>{content}</ul>
-        <NavLink
-          onClick={() => {
-            dispatch(reset());
-          }}
-          to={"/"}
-          className="block text-center bg-indigo-700 text-white p-3 text-sm w-full"
-        >
-          Go To Home
-        </NavLink>
+        
       </div>
     </>
   );
