@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   changeTransaction,
   createTransaction,
-  editActive,
+  editInActive,
 } from "../features/transaction/transactionSlice";
 
 export default function Form() {
@@ -26,8 +26,8 @@ export default function Form() {
       setType(type);
       setAmount(amount);
     } else {
-      setEditMode(false);
       reset();
+      setEditMode(false);
     }
   }, [editing]);
 
@@ -64,15 +64,14 @@ export default function Form() {
         },
       })
     );
-    setEditMode(false);
+    dispatch(editInActive());
     reset();
     navigate(from || "/", { replace: true });
   };
 
   const cancelEditMode = () => {
     reset();
-    setEditMode(false);
-    dispatch(editActive(null));
+    dispatch(editInActive());
     navigate(from || "/", { replace: true });
   };
 
